@@ -69,7 +69,7 @@ namespace NinjaTrader.NinjaScript.Indicators
                 double sq2= Math.Sqrt(2.0);
                 double a = Math.Exp( -sq2 * Math.PI / Smoothing );
                 _coef2 = 2.0 * a * Math.Cos(sq2 * Math.PI / Smoothing);
-                  _coef3 = -a * a;
+                _coef3 = -a * a;
                 _coef1 = 1.0 - _coef2 - _coef3;
                 //---
             }
