@@ -63,7 +63,7 @@ namespace NinjaTrader.NinjaScript.Indicators
                 _volat                      = new Series<double>(this);
                 _accel                      = new List<double>();
                 //--- アクセルフィルタ
-                _accelPeriod=(int)(AccelSpeed*15.0);
+                _accelPeriod=(int)(AccelSpeed * 15.0);
                 for(int j=0;j<Period;j++) _accel.Add(Math.Pow(AccelSpeed,Math.Log(j+1)));
                 //--- スムージングフィルタ
                 double sq2= Math.Sqrt(2.0);
