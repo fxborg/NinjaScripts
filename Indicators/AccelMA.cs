@@ -35,8 +35,8 @@ namespace NinjaTrader.NinjaScript.Indicators
         private Series<double>        _mom;
         private Series<double>        _volat;
         private Series<double>        _ma;
-        private List<double>        _accel;
-        private int                    _accelPeriod;
+        private List<double>          _accel;
+        private int                   _accelPeriod;
         private double                _coef1,_coef2,_coef3;
         
         
@@ -45,23 +45,23 @@ namespace NinjaTrader.NinjaScript.Indicators
             if (State == State.SetDefaults)
             {
                 //---パラメータのデフォルト値を設定。
-                Description                    = "Accel Moving Average";
+                Description                 = "Accel Moving Average";
                 Name                        = "AccelMA";
                 IsSuspendedWhileInactive    = true;
-                IsOverlay                    = true;
-                AccelSpeed                    = 0.45;
-                Period                        = 24;
-                Smoothing                    = 10;
+                IsOverlay                   = true;
+                AccelSpeed                  = 0.45;
+                Period                      = 24;
+                Smoothing                   = 10;
 
                 AddPlot(Brushes.Orange, "Accel Moving Average");
             }
             else if (State == State.Configure)
             {
                 //--- ここはセッション開始時に一度だけ実行される。
-                _ma                    = new Series<double>(this);
-                _mom                    = new Series<double>(this);
-                _volat                = new Series<double>(this);
-                _accel                = new List<double>();
+                _ma                         = new Series<double>(this);
+                _mom                        = new Series<double>(this);
+                _volat                      = new Series<double>(this);
+                _accel                      = new List<double>();
                 //--- アクセルフィルタ
                 _accelPeriod=(int)(AccelSpeed*15.0);
                 for(int j=0;j<Period;j++) _accel.Add(Math.Pow(AccelSpeed,Math.Log(j+1)));
